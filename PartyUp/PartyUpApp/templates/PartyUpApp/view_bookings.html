@@ -1,0 +1,25 @@
+{% extends "PartyUpApp/base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block stylesheets %} 
+<link rel="stylesheet" type="text/css" href="{% static 'PartyUpApp/view_bookings.css' %}">
+{% endblock stylesheets %} 
+
+{% block content %}
+<div class="row">
+    <h1 class="heading">Bookings</h1>
+    </div>
+        {% for booking in bookings %}
+            <div class="col d-flex justify-content-center">
+                <div class="card" style="width: 18rem; margin-bottom:10px; color:black;">
+                    <div class="card-body">
+                    <h3 class="card-title">Booking</h3>
+                    <p class="card-text">Start Time: {{ booking.start_date }}</p>
+                    <p class="card-text">Finish Time: {{ booking.end_date }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+            {% endfor %}
+{% endblock %}

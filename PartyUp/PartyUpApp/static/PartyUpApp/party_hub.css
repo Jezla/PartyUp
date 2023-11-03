@@ -1,0 +1,8 @@
+#bootstrap-overrides #description {
+    margin-top: -15px;
+}
+
+#bootstrap-overrides #error {
+    color: rgb(247, 195, 68);
+    font-weight: bold;
+}

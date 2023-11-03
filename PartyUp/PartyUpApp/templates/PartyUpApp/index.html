@@ -1,0 +1,46 @@
+{% extends "PartyUpApp/base.html" %}
+{% load static %}
+
+{% block stylesheets %} 
+<link rel="stylesheet" type="text/css" href="{% static 'PartyUpApp/index.css' %}">
+{% endblock stylesheets %} 
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6">
+        <h1 class="heading">The #1 Party Organising Platform</h1>
+        <p class="description">
+            We have the best event planning solution for you. Join us and plan your next event without any hassle.
+            As a member, you'll be able to create an event with only few clicks, while as a business, you can directly offer 
+            your services to customers. Best part? It's FREE!
+        </p>
+        <button id="try-now" class="btn register-btn">Try PartyUp Now!</button>
+    </div>
+    <div class="col-md-6 mt-sm-5 mt-md-0">
+        <div class="row">
+            <div class="marketing-container">
+                <div>
+                    <img id="spotify" class="marketing-img" src="{% static 'PartyUpApp/spotify.png' %}" alt="Spotify Logo">
+                    <span class="spotify-desc">Spotify Compatible</span>
+                </div>
+                <div>
+                    <img class="marketing-img" src="{% static 'PartyUpApp/palette-fill.svg' %}" alt="Creative Control">
+                    <span class="creative-control-desc">Creative Control</span>
+                </div>
+           </div>
+        </div>
+        <div class="row">
+            <div class="marketing-container">
+                <div>
+                    <img class="marketing-img" src="{% static 'PartyUpApp/signpost-fill.svg' %}" alt="All in One Place">
+                    <span class="all-in-one-place-desc">All in One Place</span>
+                </div>
+                <div>
+                    <img class="marketing-img" src="{% static 'PartyUpApp/person-check-fill.svg' %}" alt="Trusted Vendors">
+                    <span class="trusted-vendors-desc">Trusted Vendors</span>
+                </div>
+           </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

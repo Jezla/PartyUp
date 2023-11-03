@@ -1,0 +1,45 @@
+{% extends "PartyUpApp/base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{% static 'PartyUpApp/party_hub.css' %}">
+{% endblock stylesheets %}
+
+{% block scripts %}
+<script src="{% static 'PartyUpApp/user_home.js' %}" defer></script>
+{% endblock scripts %}
+
+{% block content %}
+    <p>Events</p>
+    <br>
+    {% if error %}
+        <p id="error">{{ error }}</p>
+    {% endif %}
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        {% for event in events %}
+        <div class="col">
+                <div class="card">
+                    <img src="{% static 'PartyUpApp/download (2).jpeg' %}" class="card-img-top" alt="Party Image">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ event.name }}</h5>
+                        <p class="card-text">Description:</p>
+                        <p id="description" class="card-text">{{ event.description }}</p>
+
+                        <a href="/partyup/event_page/{{event.id}}">View Party Here</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        <div class="col">
+          <div class="card">
+            <img src="{% static 'PartyUpApp/download (2).jpeg' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <a href="{% url 'partyupapp:create_event' %}">
+                    <h5 class="card-title">Create an Event</h5>
+                </a>
+            </div>
+          </div>
+        </div>
+    </div>
+{% endblock %}

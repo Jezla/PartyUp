@@ -1,0 +1,44 @@
+{% extends "PartyUpApp/base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block scripts %}
+<script src="{% static 'PartyUpApp/vendor_home.js' %}" defer></script>
+{% endblock scripts %}
+
+{% block content %}
+    <!-- <p class="form-p">Events</p>
+    <br>
+         <div class="event-grid">
+                {% for event in events %}
+                    <div class="event-box">
+                    <p>{{ event.name }}</p>
+                    </div>
+                {% endfor %}
+            <div class="add-box">
+                    <p>Create an Event</p>
+            </div>
+         </div> -->
+         <div class="row">
+            <div class="col d-flex justify-content-center">
+              <div class="card" style="width: 18rem; margin: 20px !important;">
+                <img class="card-img-top" src="../../static/PartyUpApp/partyHub.jpeg" alt="Card image cap" style="width: 100%; height: 200px; object-fit: cover;">
+                <div class="card-body">
+                  <h5 class="card-title">Party Hub</h5>
+                  <p class="card-text">A list of all your upcoming and past events.</p>
+                  <a href="/partyup/view_bookings" class="btn btn-primary" id="bookings">Take me there!</a>
+                </div>
+              </div>
+            </div>
+            <div class="col  d-flex justify-content-center">
+                <div class="card" style="width: 18rem; margin: 20px !important;">
+                  <img class="card-img-top" src="../../static/PartyUpApp/images.png" alt="Card image cap" style="width: 100%; height: 200px; object-fit: cover;">
+                  <div class="card-body">
+                    <h5 class="card-title">My Profile</h5>
+                    <p class="card-text">Want to change your personal details?</p>
+                    <a href="/partyup/vendor_profile" class="btn btn-primary">Yes!</a>
+                  </div>
+                </div>
+              </div>
+          </div>
+{% endblock %}

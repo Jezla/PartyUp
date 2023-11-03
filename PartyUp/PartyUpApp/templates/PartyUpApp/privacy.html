@@ -1,0 +1,67 @@
+{% extends "PartyUpApp/base.html" %}
+{% load static %}
+
+{% block stylesheets %} 
+<link rel="stylesheet" type="text/css" href="{% static 'PartyUpApp/privacy.css' %}">
+{% endblock stylesheets %} 
+
+<!--https://www.pwc.com.au/about-us/social-impact/Privacy-Policy-Template.docx.pdf-->
+{% block content %}
+<div id="accordion">
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+          <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Privacy Policy [click for more]
+          </button>
+        </h5>
+      </div>
+  
+      <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card-body">
+            PartyUp values and respects the privacy of the people we deal with. PartyUp is committed to
+            protecting your privacy and complying with the Privacy Act 1988 (Cth) (Privacy Act) and other applicable
+            privacy laws and regulations.
+            This Privacy Policy (Policy) describes how we collect, hold, use and disclose your personal information, and
+            how we maintain the quality and security of your personal information.<br><br>
+
+            <strong>What is personal information? </strong><br>
+            “Personal information” means any information or opinion, whether true or not, and whether recorded in a
+            material form or not, about an identified individual or an individual who is reasonably identifiable. In general
+            terms, this includes information or an opinion that personally identifies you either directly (e.g. your name) or
+            indirectly.<br><br>
+
+            <strong>What personal information do we collect?</strong><br>
+            The personal information we collect about you depends on the nature of your dealings with us or what you
+            choose to share with us.
+            The personal information we collect about you may include: 
+            <ul>
+                <li>name</li>
+                <li>email address</li>
+                <li>date of birth</li>
+            </ul><br>
+
+            <strong>How do we use your personal information?</strong><br>
+            We use personal information for many purposes in connection with our functions and activities, including the
+            following purposes:
+            <ul>
+                <li>provide you with information or services that you request from us;</li>
+                <li>deliver to you a more personalised experience and service offering;</li>
+                <li>marketing and research purposes;</li>
+                <li>internal administrative purposes;</li>
+            </ul><br> 
+
+            <strong>Disclosure of personal information to third parties</strong><br>
+            We may disclose your personal information to third parties in accordance with this Policy in circumstances
+            where you would reasonably expect us to disclose your information. For example, we may disclose your
+            personal information to:
+            <ul>
+                <li>our third party service providers (for example, our vendors);</li>
+                <li>our marketing providers;</li>
+                <li>our professional services advisors;</li>
+            </ul><br> 
+        </div>
+      </div>
+    </div>
+</div> 
+{% endblock %}

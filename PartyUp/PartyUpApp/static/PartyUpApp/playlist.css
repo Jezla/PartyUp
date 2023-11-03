@@ -1,0 +1,108 @@
+#bootstrap-overrides h2, #bootstrap-overrides p {
+    color: white;
+    text-align: center;
+}
+
+#bootstrap-overrides h2 {
+    margin-bottom: 75px;
+}
+
+form label {
+    color: white;
+    margin-bottom: 2px;
+    display: block;
+}
+
+#bootstrap-overrides input {
+    margin-bottom: 10px;
+    margin-right: 10px;
+    display: inline;
+    width: 75%
+}
+
+form #description {
+    height: 100px;
+}
+
+form .submit-wrapper {
+    display: flex;
+    margin-top: 5px;
+    justify-content: end;
+}
+
+button.submit-btn, button.party-add-song-btn {
+    background-color: #e4764c;
+    border-radius: 25px;
+}
+
+button.party-add-song-btn {
+    display: inline-block;
+}
+
+.errorlist {
+    list-style: none;
+    padding: 0;
+    font-weight: bold;
+    color: rgb(247, 195, 68);
+    margin-bottom: 0;
+}
+
+#bootstrap-overrides .form-errors {
+    color: rgb(247, 195, 68);
+    font-weight: bold;
+}
+
+#bootstrap-overrides .table {
+    color: white;
+}
+
+#bootstrap-overrides .delete-img {
+    width: 20px;
+    height: 20px;
+}
+
+#bootstrap-overrides #song-insertion-error {
+    color: rgb(247, 195, 68);
+    font-weight: bold;
+}
+
+form #form-separator {
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    color: #e4764c;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 24px;
+}
+
+form #id_playlist_name {
+    margin-bottom: 50px;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    color: white;
+    font-size: 30px;
+  }
+  
+  /* Tooltip text */
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+   
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+  }
+  
+  /* Show the tooltip text when you mouse over the tooltip container */
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }

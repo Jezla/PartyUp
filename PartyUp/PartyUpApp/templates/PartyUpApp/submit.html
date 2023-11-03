@@ -1,0 +1,19 @@
+{% extends "PartyUpApp/base.html" %}
+{% load static %}
+
+{% block stylesheets %} 
+<link rel="stylesheet" type="text/css" href="{% static 'PartyUpApp/submit.css' %}">
+{% endblock stylesheets %} 
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6"> 
+        <h1 class="heading">
+            Message Sent Successfully
+        </h1>
+        <p class="description">
+            Thanks for your message! One of our team members will be in contact shortly.  
+        </p>
+    </div>
+</div>
+{% endblock %}

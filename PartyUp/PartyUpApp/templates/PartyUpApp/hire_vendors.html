@@ -1,0 +1,55 @@
+{% extends "PartyUpApp/base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block stylesheets %} 
+<link rel="stylesheet" type="text/css" href="{% static 'PartyUpApp/hire_vendors.css' %}">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+{% endblock stylesheets %} 
+
+{% block scripts %}
+<script src="{% static 'PartyUpApp/hire_vendors.js' %}" defer></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script>
+    $( function() {
+      $( "#id_vendor_username" ).autocomplete({
+        source: "{% url 'partyupapp:vendor_autocomplete' %}"
+      });
+    });
+  </script>
+{% endblock scripts %}
+
+{% block content %}
+<div class="content-element">
+    <form id="hire_vendors_form" action="{% url 'partyupapp:invite_guests' %}" method="GET"> 
+        <h2>Party Event Hire Vendors</h2>
+        <div class="container">
+            <p>Hire vendors to elevate your party!</p>
+            <p class="form-errors"></p>
+            <label for="{{ form.vendor_username.id_for_label }}" class="form-label select-label">Username:</label>
+            {% render_field form.vendor_username class+="form-control" placeholder="Username" aria-label="Partnered Vendor Username" %}
+            <button type="button" class="btn party-add-vendor-btn">Add</button>
+            <span id="vendor-insertion-error"></span>
+            <table id="vendor_table" class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Username</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+              </table>
+
+            <div class="submit-wrapper">
+                <button type="button" class="btn submit-btn party-venue-btn">Next</button>
+            </div>        
+        </div>
+    </form>
+
+</div>
+{% endblock %}

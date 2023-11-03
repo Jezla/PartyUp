@@ -1,0 +1,56 @@
+{% extends "PartyUpApp/base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block scripts %}
+<script src="{% static 'PartyUpApp/user_home.js' %}" defer></script>
+{% endblock scripts %}
+
+{% block content %}
+    <!-- <p class="form-p">Events</p>
+    <br>
+         <div class="event-grid">
+                {% for event in events %}
+                    <a href=" {% url 'partyupapp:event_page' event.id %}">
+                    <div class="event-box">
+                    <p>{{ event.name }}</p>
+                    </div>
+                    </a>
+                {% endfor %}
+            <div class="add-box">
+                    <p>Create an Event</p>
+            </div>
+         </div> -->
+         <div class="row">
+            <div class="col-sm-4">
+              <div class="card" style="width: 18rem; margin: 20px !important;">
+                <img class="card-img-top" src="../../static/PartyUpApp/partyHub.jpeg" alt="Card image cap" style="width: 100%; height: 200px; object-fit: cover;">
+                <div class="card-body">
+                  <h5 class="card-title">Party Hub</h5>
+                  <p class="card-text">A list of all your upcoming and past events.</p>
+                  <a href="/partyup/party_hub" class="btn btn-primary">Take me there!</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="card" style="width: 18rem; margin: 20px !important;">
+                <img class="card-img-top" src="../../static/PartyUpApp/download (2).jpeg" alt="Card image cap" style="width: 100%; height: 200px; object-fit: cover;">
+                <div class="card-body">
+                  <h5 class="card-title">Party Factory</h5>
+                  <p class="card-text">Ready to party? Create your event here and invite others.</p>
+                  <a href="/partyup/create_event" class="btn btn-primary">Let's create my party!</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card" style="width: 18rem; margin: 20px !important;">
+                  <img class="card-img-top" src="../../static/PartyUpApp/images.png" alt="Card image cap" style="width: 100%; height: 200px; object-fit: cover;">
+                  <div class="card-body">
+                    <h5 class="card-title">My Profile</h5>
+                    <p class="card-text">Want to change your personal details?</p>
+                    <a href="/partyup/user_profile" class="btn btn-primary">Yes!</a>
+                  </div>
+                </div>
+              </div>
+          </div>
+{% endblock %}

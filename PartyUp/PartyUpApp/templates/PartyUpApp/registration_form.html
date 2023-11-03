@@ -1,0 +1,45 @@
+{% load static %}
+{% load widget_tweaks %}
+
+<p class="form-p">Registration</p>
+<label for="{{ form.email.id_for_label }}" class="form-label select-label">{{ form.email.label }}</label>
+{{ form.email.errors }}
+{% render_field form.email class+="form-control" placeholder="abc@example.com" aria-label="Email" %}
+<!-- This is the equivalent of -->
+<!-- <input type="email" class="form-control" placeholder="abc@example.com" aria-label="Email" 
+    id="id_email" name="email" required> -->
+
+{{ form.password1.errors }}
+<label for="{{ form.password1.id_for_label }}" class="form-label select-label">{{ form.password1.label }}</label>
+<small id="passwordHelpBlock" class="form-text text-muted">
+    {{ form.password1.help_text }}
+</small>
+{% render_field form.password1 class+="form-control" aria-label="Password"%}
+<!-- This is the equivalent of -->
+<!-- <input type="password" class="form-control" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" aria-label="Password" 
+    id="id_password1" name="password1" required> -->
+
+<label for="{{ form.password2.id_for_label }}" class="form-label select-label">Confirm Password</label>
+{{ form.password2.errors }}
+{% render_field form.password2 class+="form-control" aria-label="Confirm Password"%}
+
+<label for="{{ form.username.id_for_label }}" class="form-label select-label">{{ form.username.label}}</label>
+{{ form.username.errors }}
+{% render_field form.username class+="form-control" aria-label="Username" placeholder="Username" %}
+
+<div class="container address-container" style="display: none;">
+    <label for="{{ form.address.id_for_label }}" class="form-label select-label">{{ form.address.label}}</label>
+    {{ form.address.errors }}
+    {% render_field form.address class+="form-control" aria-label="Address" placeholder="1 Street, City, State 2100, Australia" %}
+</div>
+
+<label for="{{ form.number.id_for_label }}" class="form-label select-label">{{ form.number.label}}</label>
+{{ form.number.errors }}
+{% render_field form.number class+="form-control" aria-label="Mobile Number" placeholder="0400000000" %}
+
+<label for="{{ form.display_name.id_for_label }}" class="form-label select-label">{{ form.display_name.label}}</label>
+<span class="tt" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Name visible to other PartyUp members">
+    <img class="tooltip-img" src="{% static 'PartyUpApp/question-circle.svg' %}" alt="Display Name Tooltip">
+</span>
+{{ form.display_name.errors }}
+{% render_field form.display_name class+="form-control" aria-label="Display Name" placeholder="PartyUp User" %}

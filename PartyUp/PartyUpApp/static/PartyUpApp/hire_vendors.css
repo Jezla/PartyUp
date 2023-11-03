@@ -1,0 +1,73 @@
+#bootstrap-overrides h2, #bootstrap-overrides p {
+    color: white;
+    text-align: center;
+}
+
+#bootstrap-overrides h2 {
+    margin-bottom: 75px;
+}
+
+#bootstrap-overrides span {
+    color: white;
+    display: none;
+}
+
+form label {
+    color: white;
+    margin-bottom: 2px;
+    display: block;
+}
+
+#bootstrap-overrides input {
+    margin-bottom: 10px;
+    margin-right: 10px;
+    display: inline;
+    width: 75%
+}
+
+form #description {
+    height: 100px;
+}
+
+form .submit-wrapper {
+    display: flex;
+    margin-top: 5px;
+    justify-content: end;
+}
+
+button.submit-btn, button.party-add-vendor-btn {
+    background-color: #e4764c;
+    border-radius: 25px;
+}
+
+button.party-add-vendor-btn {
+    display: inline-block;
+}
+
+.errorlist {
+    list-style: none;
+    padding: 0;
+    font-weight: bold;
+    color: rgb(247, 195, 68);
+    margin-bottom: 0;
+}
+
+.form-error {
+    margin-top: 20px;
+    padding: 0;
+    width: 100%;
+}
+
+#bootstrap-overrides .table {
+    color: white;
+}
+
+#bootstrap-overrides .delete-img {
+    width: 20px;
+    height: 20px;
+}
+
+#bootstrap-overrides #vendor-insertion-error {
+    color: rgb(247, 195, 68);
+    font-weight: bold;
+}

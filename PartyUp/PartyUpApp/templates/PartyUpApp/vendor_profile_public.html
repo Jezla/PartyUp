@@ -1,0 +1,43 @@
+{% extends "PartyUpApp/base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{% static 'PartyUpApp/vendor_list.css' %}">
+{% endblock stylesheets %}
+
+{% block scripts %}
+<script src="{% static 'PartyUpApp/vendor_profile_public.js' %}" defer></script>
+{% endblock scripts %}
+
+{% block content %}
+    <h1>{{ vendor_details.user.display_name }}</h1>
+    <h2>Description</h2>
+    <p>{{ vendor_details.description }}</p>
+    <h2>Rating</h2>
+    <p id="rating-lab">{{ rating }}</p>
+    <h2>Vendor Type</h2>
+    <p>{{ vendor_details.type }}</p>
+    <h2>Advertised Price</h2>
+    <p>${{ vendor_details.price }}/hour</p>
+
+    <h2>Rate Vendor</h2>
+    <!-- https://codepen.io/hesguru/pen/BaybqXv -->
+    {% csrf_token %}
+    <div class="rating">
+        <input type="radio" id="star5" name="rating" value="5" />
+        <label for="star5" title="text">5 stars</label>
+        <input type="radio" id="star4" name="rating" value="4" />
+        <label for="star4" title="text">4 stars</label>
+        <input type="radio" id="star3" name="rating" value="3" />
+        <label for="star3" title="text">3 stars</label>
+        <input type="radio" id="star2" name="rating" value="2" />
+        <label for="star2" title="text">2 stars</label>
+        <input type="radio" id="star1" name="rating" value="1" />
+        <label for="star1" title="text">1 star</label>
+  </div>
+    <div class="submit-wrapper">
+        <button type="button" class="btn submit-btn rating-btn">Submit</button>
+    </div>
+
+{% endblock %}

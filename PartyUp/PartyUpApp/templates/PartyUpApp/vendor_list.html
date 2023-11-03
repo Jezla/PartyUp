@@ -1,0 +1,56 @@
+{% extends "PartyUpApp/base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{% static 'PartyUpApp/vendor_list.css' %}">
+{% endblock stylesheets %}
+
+{% block scripts %}
+<script src="{% static 'PartyUpApp/vendor_list.js' %}" defer></script>
+{% endblock scripts %}
+
+{% block content %}
+        <div class="row">
+        <h1 class="heading">Our Trusted Vendors</h1>
+        </div>
+            {% for vendor in vendors %}
+            <div class="row"></div>
+                <div class="col d-flex justify-content-center">
+                    <div class="card" style="width: 18rem; margin-bottom:10px; color:black;">
+                        <img class="card-img-top" src="../../static/PartyUpApp/balloons-scaled.jpeg" alt="Card image cap">
+                        <div class="card-body">
+                            <a href="{% url 'partyupapp:vendor_profile' vendor.user_id %}">
+                        <h3 class="card-title">{{ vendor.user.display_name }}</h3>
+                                </a>
+                        <p class="card-text">Vendor Type: {{ vendor.type }}</p>
+                        <p class="card-text">Who are we? {{ vendor.description }}</p>
+                        <p class="card-text">Advertised Price: ${{ vendor.price }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                {% endfor %}
+        
+        <!-- <table>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Rating</th>
+            </tr>
+        {% for vendor in vendors %}
+            <tr>
+
+                    <td>
+                        <a href="{% url 'partyupapp:vendor_profile' vendor.user_id %}">
+                        {{ vendor.user.display_name }}
+                        </a>
+                    </td>
+                <td>{{ vendor.description }}</td>
+                <td>{{ vendor.type }}</td>
+                <td>{{ vendor.rating }}</td>
+            </tr>
+        {% endfor %}
+        </table> -->
+{% endblock %}

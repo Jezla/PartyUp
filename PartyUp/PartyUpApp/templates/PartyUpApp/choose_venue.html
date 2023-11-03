@@ -1,0 +1,49 @@
+{% extends "PartyUpApp/base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block stylesheets %} 
+<link rel="stylesheet" type="text/css" href="{% static 'PartyUpApp/choose_venue.css' %}">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+{% endblock stylesheets %} 
+
+{% block scripts %}
+<script src="{% static 'PartyUpApp/choose_venue.js' %}" defer></script>
+<!-- This autocomplete script is conflicting with google api autocomplete fix-->
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#id_venue_username" ).autocomplete({
+      source: "{% url 'partyupapp:venue_autocomplete' %}"
+    });
+  } );
+  </script>
+{{ own_form.media }}
+{% endblock scripts %}
+
+{% block content %}
+<div class="content-element">
+    <form id="choose_venue_form" action="{% url 'partyupapp:choose_vendors' %}" method="GET"> 
+        <h2 id="form-title">Party Event Choose Venue</h2>
+        <div class="container">
+            <p class="form-errors"></p>
+            <p id="form-p">Choose your own address!</p>
+            <label for="{{ own_form.address.id_for_label }}" class="form-label select-label">Address:</label>
+            <p id="address-error" class="form-field-error"></p>
+            {% render_field own_form.address class+="form-control" placeholder="1 Street, City, State 2100, Australia" aria-label="Party Address" %}
+            
+            <p id="form-separator">OR</p>
+
+            <p id="form-p">Choose from one of our partnered vendors!</p>
+            <label for="{{ partnered_form.venue_username.id_for_label }}" class="form-label select-label">Username:</label>
+            <p id="username-error" class="form-field-error"></p>
+            {% render_field partnered_form.venue_username class+="form-control" placeholder="Username" aria-label="Partnered Vendor Username" %}
+
+            <div class="submit-wrapper">
+                <button type="button" class="btn submit-btn party-venue-btn">Next</button>
+            </div>        
+        </div>
+    </form>
+</div>
+{% endblock %}

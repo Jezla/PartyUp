@@ -1,0 +1,34 @@
+{% extends "PartyUpApp/base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block stylesheets %} 
+<link rel="stylesheet" type="text/css" href="{% static 'PartyUpApp/login.css' %}">
+{% endblock stylesheets %} 
+
+{% block scripts %}
+<script src="{% static 'PartyUpApp/login.js' %}" defer></script>
+{% endblock scripts %}
+
+{% block content %}
+<div class="container content-element">
+    <form action="{% url 'partyupapp:login' %}" method="POST">
+        {% csrf_token %}        
+        <div class="container login-container">
+            <p class="form-p">Login</p>
+            <div class="container form-error">
+                {% if form.non_field_errors %}
+                    {{form.non_field_errors}}
+                {% endif %}
+            </div>
+            <label for="{{ form.username.id_for_label }}" class="form-label select-label">{{ form.username.label }}</label>
+            {% render_field form.username class+="form-control" placeholder="Username" aria-label="Username" %}
+            <label for="{{ form.password.id_for_label }}" class="form-label select-label">{{ form.password.label }}</label>
+            {% render_field form.password class+="form-control" aria-label="Password" %}
+        </div>
+        <div class="submit-wrapper">
+            <button class="btn register-btn" type="submit">Login</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

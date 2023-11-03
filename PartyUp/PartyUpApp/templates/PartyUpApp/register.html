@@ -1,0 +1,63 @@
+{% extends "PartyUpApp/base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block stylesheets %} 
+<link rel="stylesheet" type="text/css" href="{% static 'PartyUpApp/login.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'PartyUpApp/register.css' %}">
+{% endblock stylesheets %} 
+
+{% block scripts %}
+<script src="{% static 'PartyUpApp/register.js' %}" defer></script>
+{{ form.media }} <!-- needed for JS/GoogleMaps lookup -->
+{% endblock scripts %}
+
+{% block content %}
+<div class="content-element">
+    <form action="{% url 'partyupapp:register' %}" method="POST"> 
+        {% csrf_token %}
+        
+        <div class="container selection-container">
+            <label for="{{ form.account_type.id_for_label }}" class="form-label select-label">{{ form.account_type.label }}</label>
+            <select class="form-select" name="{{ form.account_type.name }}" id="{{ form.account_type.id_for_label }}">
+                <option disabled selected value>--Select an option--</option>
+                {% for option in form.account_type %}
+                    {{ option }}
+                    <!-- This is equivalent to -->
+                    <!--
+                    <option class="form-option" value="Member">Member</option>
+                    <option class="form-option" value="Vendor">Vendor</option>
+                    -->    
+                {% endfor %} 
+            </select>   
+        </div>
+        <div class="container vendor-type-selection-container" style="display: none;">
+            <label for="{{form.vendor_type.id_for_label }}" class="form-label select-label">{{ form.vendor_type.label }}</label>
+            <select class="form-select" name="{{ form.vendor_type.name }}" id="{{ form.vendor_type.id_for_label }}">
+                <option disabled selected value>--Select an option--</option>
+                {% for option in form.vendor_type %}
+                    {{ option }}
+                {% endfor %}
+            </select>
+        </div>
+        {% if form.errors %}
+            <div class="container login-container" style="display: block;">
+                {% include 'PartyUpApp/registration_form.html' %}
+            </div>
+            {% else %}
+                <div class="container login-container">
+                    {% include 'PartyUpApp/registration_form.html' %}
+                </div>
+        {% endif %}
+        {% if form.errors %}
+            <div class="submit-wrapper" style="display: block;">
+                <button class="btn register-btn" type="submit">Register</button>
+            </div>
+            {% else %}
+            <div class="submit-wrapper">
+                <button class="btn register-btn" type="submit">Register</button>
+            </div>
+        {% endif %}
+    </form>
+</div>
+{% endblock %}

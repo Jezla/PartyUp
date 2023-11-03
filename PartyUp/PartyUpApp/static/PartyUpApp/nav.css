@@ -1,0 +1,66 @@
+#bootstrap-overrides a img {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+#bootstrap-overrides span.brand-text, #bootstrap-overrides a.nav-link, #bootstrap-overrides button.btn {
+    color: #fff;
+    transition: all 0.5s ease;
+}
+
+#bootstrap-overrides span.brand-text:hover, #bootstrap-overrides a.nav-link:hover, #bootstrap-overrides button.login-btn:hover {
+    /* overriding bootstrap hover */
+    color: #4c5761;
+}
+
+.navbar {
+    background-color: #172153;
+    padding-top: 0;
+    padding-right: 10px;
+}
+
+#bootstrap-overrides button.register-btn {
+    background-color: #e4764c;
+    border-radius: 25px;
+}
+#bootstrap-overrides button.register-btn:hover {
+    transform: scale(0.85);
+}
+
+.navbar-toggler-icon {
+   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")
+}
+
+.navbar-toggler {
+    border: 1px solid white;
+}
+
+@media (max-width: 767px) { 
+    .mb-2 {
+        margin-bottom: 0 !important;
+    }
+
+    #navbarSupportedContent {
+        padding-left: 10px;
+    } 
+
+    #bootstrap-overrides .d-flex {
+        flex-wrap: wrap;
+        padding-inline-start: 0;
+        justify-content: left;
+    }
+
+    #bootstrap-overrides .d-flex a {
+        flex-basis: 100%;
+    }
+
+    #bootstrap-overrides button.login-btn {
+        flex-basis: 100%;
+        text-align: left;
+        padding-left: 0;
+    }
+
+    #bootstrap-overrides button.register-btn {
+        text-align: center;
+    }
+}

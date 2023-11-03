@@ -1,0 +1,67 @@
+form #form-p {
+    color: white;
+    text-align: center;
+    font-size: 18px;
+}
+
+form #form-title {
+    color: white;
+    text-align: center;
+}
+
+form #form-separator {
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    color: #e4764c;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 24px;
+}
+
+h2 {
+    margin-bottom: 50px;
+}
+
+form label {
+    color: white;
+    margin-bottom: 2px;
+}
+
+form input {
+    margin-bottom: 10px;
+}
+
+form #description {
+    height: 100px;
+}
+
+form .submit-wrapper {
+    display: flex;
+    margin-top: 5px;
+    justify-content: end;
+}
+
+button.submit-btn {
+    background-color: #e4764c;
+    border-radius: 25px;
+}
+
+.errorlist {
+    list-style: none;
+    padding: 0;
+    font-weight: bold;
+    color: rgb(247, 195, 68);
+    margin-bottom: 0;
+}
+
+.form-error {
+    margin-top: 20px;
+    padding: 0;
+    width: 100%;
+}
+
+#bootstrap-overrides .form-field-error, #bootstrap-overrides .form-errors {
+    font-weight: bold;
+    color: rgb(247, 195, 68);
+}

@@ -1,0 +1,57 @@
+{% load static %}
+<nav class="navbar navbar-expand-md">
+    <div class="container-fluid">
+      {% if not user.is_authenticated %}
+        <a class="navbar-brand" href="{% url 'partyupapp:home' %}">
+      {% else %}
+      {% if not user.is_vendor %}
+        <a class="navbar-brand" href="{% url 'partyupapp:user_home' %}">
+      {% else %}
+        <a class="navbar-brand" href="{% url 'partyupapp:vendor_home' %}">
+      {% endif %}
+      {% endif %}
+        <img src="{% static 'PartyUpApp/partyup.png' %}" alt="Party Up Logo">
+        <span class="brand-text">PartyUp</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            {% if user.is_authenticated %}
+            <a class="nav-link" href="{% url 'partyupapp:party_hub' %}">Events</a>
+            {% else %}
+            <a class="nav-link" href="{% url 'partyupapp:register' %}">Events</a>           
+            {% endif %}
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'partyupapp:vendor_list' %}">Vendors</a>
+          </li>
+        </ul>
+        <ul class="d-flex">
+            {% if not user.is_authenticated %}
+          <a href="{% url 'partyupapp:login' %}">
+            <button class="btn login-btn">Login</button>
+          </a>
+          <a href="{% url 'partyupapp:register' %}">
+            <button class="btn register-btn" type="submit">Register</button>
+          </a>
+            {% else %}
+                <li class="nav-item">
+                {% if user.is_vendor %}
+                                <a class="nav-link" href="{% url 'partyupapp:vendor_home' %}">{{ user.get_username }}</a>
+                    {% else %}
+                                <a class="nav-link" href="{% url 'partyupapp:user_home' %}">{{ user.get_username }}</a>
+                    {% endif %}
+
+          </li>
+          <a href="{% url 'partyupapp:logout' %}">
+            <button class="btn login-btn">Logout</button>
+          </a>
+            {% endif %}
+
+        </ul>
+      
+      </div>
+    </div>
+  </nav>

@@ -1,0 +1,45 @@
+.content-container {
+    margin-top: 100px;
+}
+
+.container {
+    color: white;
+    font-family: 'Inter Tight', sans-serif;
+    margin-right: auto;
+}
+
+.description {
+    border-left: 2px solid #e4764c;
+    padding-left: 10px;
+}
+
+#try-now {
+    width: 215px;
+}
+
+.marketing-container {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.marketing-container span {
+    display: block;
+    margin-top:22.5px;
+    margin-bottom: 22.5px;
+}
+
+.marketing-img {
+    width: 150px;
+}
+
+.container-fluid {
+    padding-left:0;
+    padding-right: 0;
+}
+
+@media (min-width: 768px) { 
+    .container {
+        margin-left: 50px;
+    }
+}

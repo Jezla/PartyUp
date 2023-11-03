@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\PartyUp",
+    "\\PartyUp\\PartyUpApp",
+    "\\PartyUp\\PartyUpApp\\static",
+    "\\PartyUp\\PartyUpApp\\templates",
+    "\\PartyUp\\PartyUpApp\\templates\\PartyUpApp"
+  ],
+  "SelectedNode": "\\PartyUp\\PartyUpApp\\templates\\PartyUpApp\\party_hub.html",
+  "PreviewInSolutionExplorer": false
+}

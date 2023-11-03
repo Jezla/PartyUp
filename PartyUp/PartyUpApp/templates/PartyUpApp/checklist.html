@@ -1,0 +1,46 @@
+{% extends "PartyUpApp/base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block stylesheets %} 
+<link rel="stylesheet" type="text/css" href="{% static 'PartyUpApp/checklist.css' %}">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+{% endblock stylesheets %} 
+
+{% block scripts %}
+<script src="{% static 'PartyUpApp/checklist.js' %}" defer></script>
+{% endblock scripts %}
+
+{% block content %}
+<div class="content-element">
+    <form id="checklist_form" action="{% url 'partyupapp:spotify_auth' %}" method="GET"> 
+        <h2>Party Event Checklist</h2>
+        <div class="container">
+            <p>Put items in your Party Checklist!</p>
+            <p class="form-errors"></p>
+            <label for="{{ form.name.id_for_label }}" class="form-label select-label">Name:</label>
+            {% render_field form.name class+="form-control" placeholder="Item" aria-label="Item" %}
+            <button type="button" class="btn party-add-item-btn">Add</button>
+            <span id="item-insertion-error"></span>
+            <table id="items_table" class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+              </table>
+
+            <div class="submit-wrapper">
+                <button type="button" class="btn skip-btn party-venue-btn">Skip Next</button>
+                <button type="button" class="btn submit-btn party-venue-btn">Next</button>
+            </div>     
+        </div>
+    </form>
+    <form id="skip_checklist_form" action="{% url 'partyupapp:payment' %}" method="GET">
+    </form>
+</div>
+{% endblock %}

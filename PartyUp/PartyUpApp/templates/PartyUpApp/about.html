@@ -1,0 +1,23 @@
+{% extends "PartyUpApp/base.html" %}
+{% load static %}
+
+{% block stylesheets %} 
+<link rel="stylesheet" type="text/css" href="{% static 'PartyUpApp/about.css' %}">
+{% endblock stylesheets %} 
+
+{% block content %}
+<div class="container-fluid col-md-6 about">
+  <h class="about-heading"> WHO WE ARE</h>
+    <p>
+      We are a team of web developers from Sydney, Australia who wants to change the party planning industry. 
+      Established in 2022, right after the dark times of lockdowns and social distancing, PartyUp will make sure 
+      that you can conviniently plan out your social events and enjoy the freedom of this post-COVID world. 
+    </p>
+    {% if not user.is_authenticated %}
+    <a href="{% url 'partyupapp:register' %}"><button id="try-now" class="btn register-btn">Try PartyUp Now!</button></a>
+    {% else %}
+    <a href="{% url 'partyupapp:user_home' %}"><button id="try-now" class="btn register-btn">Try PartyUp Now!</button></a>
+    {% endif %}
+</div>
+
+{% endblock %}

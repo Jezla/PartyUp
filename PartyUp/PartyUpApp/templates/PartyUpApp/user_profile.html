@@ -1,0 +1,47 @@
+{% extends "PartyUpApp/base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block scripts %}
+<script src="{% static 'PartyUpApp/user_profile.js' %}" defer></script>
+{% endblock scripts %}
+
+{% block stylesheets %} 
+<link rel="stylesheet" type="text/css" href="{% static 'PartyUpApp/user_profile.css' %}">
+{% endblock stylesheets %} 
+
+{% block content %}
+<div class="col-xl-8 mx-auto">
+    <!-- Account details card-->
+    <div class="card" style="padding: 10px;">
+        <div class="card-header">Account Details</div>
+        <div class="card-body">
+            <form method="POST" action="{% url 'partyupapp:user_profile' %}">
+                {% csrf_token %} 
+                <label for="{{ form.display_name.id_for_label }}" class="form-label select-label">{{ form.display_name.label}}</label>
+                {{ form.display_name.errors }}
+                {% render_field form.display_name class+="form-control" aria-label="Display Name" id="displayName" name="display_name"%}
+                <label for="{{ form.email.id_for_label }}" class="form-label select-label">{{ form.email.label }}</label>
+                {{ form.email.errors }}
+                {% render_field form.email class+="form-control" aria-label="Email" id="email" name="email"%}
+                <label for="{{ form.phone_number.id_for_label }}" class="form-label select-label">{{ form.phone_number.label}}</label>
+                {{ form.phone_number.errors }}
+                {% render_field form.phone_number class+="form-control form-input" aria-label="Mobile Number" id="phone" name="phone"%}
+                
+                <button type="submit" class="btn btn-primary" style="margin: 0; margin-top: 10px;" id="save-btn">Save</button>
+                <a href="/partyup/user_home"><button type="button" class="btn btn-danger" style="margin: 0; margin-top: 10px;">Back</button></a>
+                <div class="row">
+                    <a href="/partyup/change_password"><button type="button" class="btn btn-primary" style="margin: 0; margin-top: 10px;">Change Password</button></a>
+                </div>
+                {% if messages %}
+                <ul class="list-group list-group-flush">
+                    {% for message in messages %}
+                    <li class="list-group-item">{{ message }}</li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

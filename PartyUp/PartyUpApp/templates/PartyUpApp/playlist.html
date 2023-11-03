@@ -1,0 +1,75 @@
+{% extends "PartyUpApp/base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block stylesheets %} 
+<link rel="stylesheet" type="text/css" href="{% static 'PartyUpApp/playlist.css' %}">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+{% endblock stylesheets %} 
+
+{% block scripts %}
+<script src="{% static 'PartyUpApp/playlist.js' %}" defer></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script>
+    $( function() {
+        $( "#id_track_search" ).autocomplete({
+            source: "{% url 'partyupapp:search_tracks' %}"
+        });
+    });
+  </script>
+  <script>
+    $( function() {
+        $( "#id_playlist_search" ).autocomplete({
+            source: "{% url 'partyupapp:search_playlist' %}"
+        });
+    });
+  </script>
+{% endblock scripts %}
+
+{% block content %}
+<div class="content-element">
+    <form id="playlist_form" action="{% url 'partyupapp:payment' %}" method="GET">
+        <h2>Party Event Playlist</h2>
+        <div class="container">
+            <p class="form-errors"></p>
+            <p>Search through your Spotify Playlists (by name) and select one you like</p>
+            <label for="{{ form.playlist_search.id_for_label }}" class="form-label select-label">Playlist Name:</label>
+            <p id="playlist-search-error"class="form-field-error"></p>
+            {% render_field form.playlist_search class+="form-control" placeholder="Name" aria-label="Partnered Vendor Username" %}
+
+            <p id="form-separator">OR</p>
+
+            <p>Create your own custom playlist by searching Spotify for songs</p>
+
+            <label for="{{ form.playlist_name.id_for_label }}" class="form-label select-label">Name of custom playlist:</label>
+
+            <p id="playlist-name-error"class="form-field-error"></p>
+            {% render_field form.playlist_name class+="form-control" placeholder="Name" aria-label="Partnered Vendor Username" %}
+
+            <label for="{{ form.track_search.id_for_label }}" class="form-label select-label">Name of song:</label>
+            <p id="track-search-error"class="form-field-error"></p>
+            {% render_field form.track_search class+="form-control" placeholder="Name" aria-label="Partnered Vendor Username" %}
+            <button type="button" class="btn party-add-song-btn">Add</button>
+            <p id="playlist-name"></p>
+            <span id="song-insertion-error"></span>
+            <table id="song_table" class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Song Name and Id</th>
+                    <th scope="col">Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+              </table>
+
+            <div class="submit-wrapper">
+                <button type="button" class="btn submit-btn party-venue-btn">Next</button>
+            </div>        
+        </div>
+    </form>
+
+</div>
+{% endblock %}

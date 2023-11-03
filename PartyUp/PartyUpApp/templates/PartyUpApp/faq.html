@@ -1,0 +1,59 @@
+{% extends "PartyUpApp/base.html" %}
+{% load static %}
+
+{% block stylesheets %} 
+<link rel="stylesheet" type="text/css" href="{% static 'PartyUpApp/faq.css' %}">
+{% endblock stylesheets %} 
+
+{% block content %}
+<div id="accordion">
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+          <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Users [click here]
+          </button>
+        </h5>
+      </div>
+  
+      <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card-body">
+            <strong>Can I edit my perdonal details?</strong><br>
+            Of course! Just go to your profile after logging in and enter your new details.<br>
+            <strong>How will I be charged for vendors fees?</strong><br>
+            You will pay the fee upfront when booking a vendor's services.<br>
+            <strong>What if I wasn't satisfied with a vendor's quality of service?</strong><br>
+            You can give vendors a rating from 1 to 5 with 5 indicating the best quality after the event has been finished.
+            You can also always email our customer support team on the Contact Us page if there are any important issues.<br> 
+            <strong>Will you take my payment details upon registration?</strong><br>
+            Nope! You need to enter your payment details only when you are hiring a venue or a vendor.<br> 
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingTwo">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Vendors [click here]
+          </button>
+        </h5>
+      </div>
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+        <div class="card-body">
+          <strong>Can I edit my business details?</strong><br>
+          Of course! Just go to your profile after logging in and enter your new details.<br>
+          <strong>How will I receive the payment when providing services for an event?</strong><br>
+          The users will pay the fee upfront when booking your services for their events.<br>
+          <strong>Can I promote my business on your platform?</strong><br>
+          Unfortunetaly, we don't have promotion services at the moment. But we are working hard to add that functionality
+          in the future. Stay tuned!<br> 
+          <strong>How does the rating system work?</strong><br>
+          Those users who have used your services for an event will be able to provide you with a rating
+          from 1 to 5 with 5 indicating the best quality.<br> 
+          <strong>How will the rating system affect my business?</strong><br>
+          Users can see your average rating on the website when hiring your services. So, make sure you keep it up!
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
