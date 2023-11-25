@@ -1,8 +1,4 @@
-# Group-16-PartyUp
-
-Commit id to be cloned for marking Assignment C (System Implementation): 8183373c2d7e6b991dbe55084c4def2cce93933c (submitted one day late considering that we were given a simple extension)
-
-Commit id to be cloned for marking Assignment D (System Deployment and Testing): the last commit on the repo
+# PartyUp
 
 ## Note
 When using the PayPal checkout, you can use partyupuser@gmail.com as the email and partyuppasswor as the password.
@@ -80,8 +76,7 @@ Chris Ters
 Dean Diamant  
 Will Qiu
  
-## Contact
-Please email us at dkaz5711@uni.sydney.edu.au
+
 
 ## Aknowledgements
 The document by PWC at https://www.pwc.com.au/about-us/social-impact/Privacy-Policy-Template.docx.pdf was used to write up our website's privacy policy.
